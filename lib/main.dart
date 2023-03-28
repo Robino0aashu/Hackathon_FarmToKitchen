@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './screens/main_screen.dart';
+import './screens/Signup0farmer.dart';
+import './screens/login0farmer.dart';
 
 import './providers/products.dart';
 
@@ -30,8 +32,11 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(secondary: Colors.white),
         ),
-        home: const MainScreen(),
+        home: loginFarmer(),
         routes: {
+          MainScreen.routeName: (context) => const MainScreen(),
+          farmerSignUp.routeName: (context) => const farmerSignUp(),
+          loginFarmer.routeName: (context) => loginFarmer(),
           //ScreenNew.routeName: (context)=>ScreenNew(),
           //LoanEligiblty.routeName: (context)=>LoanEligiblty(),
         },

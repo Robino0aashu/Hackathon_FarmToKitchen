@@ -10,6 +10,7 @@ import './screen4.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+  static const routeName = '/main-screen';
 
   @override
   State<MainScreen> createState() => _MainScreenState();

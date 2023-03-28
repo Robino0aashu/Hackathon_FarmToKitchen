@@ -9,6 +9,7 @@ import '../widgets/home_list.dart';
 
 class HomeScreen extends StatelessWidget {
 
+
   @override
   Widget build(BuildContext context) {
     final prodDetails = Provider.of<Products>(context);
