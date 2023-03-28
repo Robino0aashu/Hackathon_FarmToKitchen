@@ -1,3 +1,4 @@
+import 'package:bit_flip/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 import './Signup0farmer.dart';
@@ -50,7 +51,9 @@ class loginFarmer extends StatelessWidget {
 
               SizedBox(height: 30,),
 
-              TextButton(onPressed: (){}, child: Text("Login"), style: ButtonStyle(
+              TextButton(onPressed: (){
+                Navigator.of(context).pushNamed(MainScreen.routeName);
+              }, child: Text("Login"), style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
               )),
