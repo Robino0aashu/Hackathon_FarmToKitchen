@@ -9,7 +9,7 @@ class FarmProductsPage extends StatefulWidget {
   @override
   _FarmProductsPageState createState() => _FarmProductsPageState();
 }
-
+// Using demo data for now
 class _FarmProductsPageState extends State<FarmProductsPage> {
     final List<Map<String, dynamic>> _farmProducts = [
     {'product': 'Tomatoes', 'market1': '10/kg', 'market2': '12/kg'},
