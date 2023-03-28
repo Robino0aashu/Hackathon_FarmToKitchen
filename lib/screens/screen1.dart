@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/products.dart';
+
+//import 'screen_new.dart';
 
 import '../widgets/home_list.dart';
-class Screen1 extends StatelessWidget {
 
-  ScrollController _Lvl2Controller = ScrollController();
-  ScrollController _Lvl1Controller = ScrollController();
+class HomeScreen extends StatelessWidget {
 
-  @override 
+  @override
   Widget build(BuildContext context) {
+    final prodDetails = Provider.of<Products>(context);
     return Stack(
       children: [
         Container(
           height: MediaQuery.of(context).size.height * 0.9,
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: Color.fromRGBO(37,108,52,1),
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(37, 108, 52, 1),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
@@ -27,9 +31,9 @@ class Screen1 extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                children:  [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Profit Flip',
                       style: TextStyle(
@@ -40,102 +44,96 @@ class Screen1 extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Icon(
-                      Icons.notifications,
-                      color: Colors.white,
-                    ),
-                  ),
+                      padding: EdgeInsets.only(right: 20),
+                      child: IconButton(
+                        onPressed: (){
+                          //TODO LISTNEWPRODUCT
+                        },
+                        icon: Icon(Icons.add),
+                        color: Colors.white,
+                      )),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //   children: [
-              //     Container(
-              //       height: 50,
-              //       width: 50,
-              //       decoration: BoxDecoration(
-              //         color: Colors.white,
-              //         borderRadius: BorderRadius.circular(10),
-              //       ),
-              //       child: Icon(
-              //         Icons.home,
-              //         color: Colors.green,
-              //       ),
-              //     ),
-              //     Container(
-              //       height: 50,
-              //       width: 50,
-              //       decoration: BoxDecoration(
-              //         color: Colors.white,
-              //         borderRadius: BorderRadius.circular(10),
-              //       ),
-              //       child: Icon(
-              //         Icons.sell_sharp,
-              //         color: Colors.green,
-              //       ),
-              //     ),
-              //     Container(
-              //       height: 50,
-              //       width: 50,
-              //       decoration: BoxDecoration(
-              //         color: Colors.white,
-              //         borderRadius: BorderRadius.circular(10),
-              //       ),
-              //       child: Icon(
-              //         Icons.currency_rupee,
-              //         color: Colors.green,
-              //       ),
-              //     ),
-              //     Container(
-              //       height: 50,
-              //       width: 50,
-              //       decoration: BoxDecoration(
-              //         color: Colors.white,
-              //         borderRadius: BorderRadius.circular(10),
-              //       ),
-              //       child: Icon(
-              //         Icons.person,
-              //         color: Colors.green,
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              Text('Hi User!!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.start,
-                  ),
+              const Text(
+                'Hi Farmer!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.start,
+              ),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 180),
+          padding: const EdgeInsets.only(top: 150),
           child: Container(
             height: MediaQuery.of(context).size.height * 0.7,
             width: double.infinity,
             decoration: const BoxDecoration(
-              color: Color.fromRGBO(165,208,90,1),
+              color: Color.fromRGBO(165, 208, 90, 1),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
               ),
+            ),
+            child: Container(
+              padding: const EdgeInsets.only(right: 30),
+              alignment: Alignment.topCenter,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        'assets/images/avatVeggie.png',
+                        height: MediaQuery.of(context).size.height * 0.25,
+                      ),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      alignment: Alignment.center,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              ' ₹ ${prodDetails.approvedItemCost}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                                ' / ${prodDetails.approvedItemCost + prodDetails.InMarketItemsCost}',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          ]),
+                    )
+                    // Column(
+                    //   children: [
+                    //     Text('Name'),
+                    //     Text('ID'),
+                    //   ],
+                    // ),
+                  ]),
             ),
           ),
         ),
         SingleChildScrollView(
           //controller: _Lvl1Controller,
           child: Padding(
-            padding: const EdgeInsets.only(top: 400),
+            padding: const EdgeInsets.only(top: 350),
             child: Container(
-              padding: EdgeInsets.all(30),
-              height: MediaQuery.of(context).size.height * 0.6,
+              padding: const EdgeInsets.only(
+                  top: 20, left: 15, right: 15, bottom: 5),
+              height: MediaQuery.of(context).size.height * 0.7,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: Colors.white,
@@ -148,6 +146,7 @@ class Screen1 extends StatelessWidget {
             ),
           ),
         ),
-      ],);
+      ],
+    );
   }
 }

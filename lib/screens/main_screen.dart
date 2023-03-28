@@ -24,16 +24,15 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       _selectedPageIndex=index;
     });
-    print(_selectedPageIndex);
   }
 
   @override
   void initState() {
     _pages=[
-    Screen1(),
-    Screen2(),
-    Screen3(),
-    Screen4(),
+    HomeScreen(),
+    TransHistory(),
+    const FarmProductsPage(),
+    ProfilePage(),
   ];
     super.initState();
   }
@@ -52,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
             color: Colors.green,
             buttonBackgroundColor: Colors.grey.shade300,
             onTap: _selectPage,
-            items: <Widget>[
+            items: const <Widget>[
               Icon(Icons.home),
               Icon(Icons.sell_sharp),
               Icon(Icons.currency_rupee),
@@ -62,48 +61,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-
-
-            
-
-      //       Container(
-      //   height: 70,
-      //   child: Column(
-      //     children: [
-      //       ClipRRect(
-      //         borderRadius: BorderRadius.circular(40),
-      //         child: BottomNavigationBar(
-      //             type: BottomNavigationBarType.fixed,
-      //             backgroundColor: Colors.green,
-      //             iconSize: 20.0,
-      //             selectedIconTheme: IconThemeData(size: 28.0),
-      //             selectedItemColor: Colors.black,
-      //             unselectedItemColor: Colors.white,
-      //             selectedFontSize: 16.0,
-      //             unselectedFontSize: 12,
-      //             currentIndex: _selectedPageIndex,
-      //             onTap: _selectPage,
-      //             items: <BottomNavigationBarItem>[
-      //               BottomNavigationBarItem(
-      //                 icon: Icon(Icons.home),
-      //                 label: "Home",
-      //               ),
-      //               BottomNavigationBarItem(
-      //                 icon: Icon(Icons.search),
-      //                 label: "Search",
-      //               ),
-      //               BottomNavigationBarItem(
-      //                 icon: Icon(Icons.settings),
-      //                 label: "Settings",
-      //               ),
-      //               BottomNavigationBarItem(
-      //                 icon: Icon(Icons.person),
-      //                 label: "Account",
-      //               ),
-      //             ]),
-      //       ),
-      //       SizedBox(height: 7,),
-      //     ],
-      //   ),
-      // ),
